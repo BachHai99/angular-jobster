@@ -1,1 +1,39 @@
-<p>register works!</p>
+<section class="full-page">
+  <form action="submit" class="form" @submit="onSubmit">
+    <app-logo></app-logo>
+    <h3>{{ values.isMember ? "login" : "register" }}</h3>
+
+    <!-- <h1>{{$t('welcome')}}</h1> -->
+    <!-- name field -->
+    <!-- <form-row
+      v-if="!values.isMember"
+      type="text"
+      name="name"
+      :value="values.name"
+    ></form-row> -->
+    <input v-if="!values.isMember" type="text" v-model="values.name" />
+    <!-- {{values.value.name}} -->
+    <!-- email field -->
+    <!-- <form-row type="email" name="email" :value="values.email" :handleChange="handleChange"></form-row> -->
+    <!-- {{ values.email }} -->
+    <input type="text" v-model="values.email" />
+    <!-- password field -->
+    <!-- <form-row
+      type="password"
+      name="password"
+      :value="values.password"
+      :handleChange = "handleChange"
+    ></form-row> -->
+    <input type="password" v-model="values.password" />
+    <button class="btn btn-block">
+      {{ isLoading ? "loading..." : "submit" }}
+    </button>
+    <button class="btn btn-block btn-hipster" :disabled="isLoading" @click="store.loginUser({email: 'testUser@test.com', password: 'secret'})" >
+      {{ isLoading ? "loading..." : "demo app" }}
+    </button>
+    <p>{{ values.isMember ? "Not a member yet?" : "Already a member?" }}</p>
+    <button type="button" @click="toggleMember" class="member-btn">
+      {{ values.isMember ? "Register" : "Login" }}
+    </button>
+  </form>
+</section>

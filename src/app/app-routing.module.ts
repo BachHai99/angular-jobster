@@ -10,30 +10,45 @@ import { ProfileComponent } from './pages/dashboard/profile/profile.component';
 
 
 const routes: Routes = [
+  // {
+  //   path: "",
+  //   redirectTo: '/home',
+  //   component: LandingComponent
+  // },
+  // {
+  //   path: "/",
+  //   component: LandingComponent
+  // },
+  // {
+  //   path: '',
+  //   redirectTo: '/home',
+  //   pathMatch: 'full'
+  // },
   {
-    path: "/all-jobs",
+    path: "all-jobs",
     component: AlljobsComponent
   },
   {
-    path: "/add-job",
+    path: "add-job",
     component: AddjobComponent
   },
   {
-    path: "/landing",
+    path: "landing",
     component: LandingComponent
   },
   {
-    path: "/register",
+    path: "register",
     component: RegisterComponent
   },
   {
-    path: "/",
+    path: "",
     component: StatsComponent
   },
   {
-    path: "/profile",
+    path: "profile",
     component: ProfileComponent
-  }
+  },
+
 ];
 
 @NgModule({

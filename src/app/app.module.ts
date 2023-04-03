@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { allJobsReducer } from './stores/allJobs/all-jobs.reducer';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +15,12 @@ import { AddjobComponent } from './pages/dashboard/addjob/addjob.component';
 import { AlljobsComponent } from './pages/dashboard/alljobs/alljobs.component';
 import { StatsComponent } from './pages/dashboard/stats/stats.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LogoComponent } from './components/logo/logo.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { JobComponent } from './components/job/job.component';
+import { JobsContainerComponent } from './components/jobs-container/jobs-container.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { SearchContainerComponent } from './components/search-container/search-container.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +31,20 @@ import { HttpClientModule } from '@angular/common/http';
     ProfileComponent,
     AddjobComponent,
     AlljobsComponent,
-    StatsComponent
+    StatsComponent,
+    LogoComponent,
+    NavbarComponent,
+    JobComponent,
+    JobsContainerComponent,
+    LoadingComponent,
+    SearchContainerComponent
   ],
   imports: [
     BrowserModule,
+    StoreModule.forRoot({ count: allJobsReducer }),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
